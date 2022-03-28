@@ -81,11 +81,11 @@ main {
   font-size: smaller;
 }
 
-.fa-solid {
+.tweets .fa-solid {
   color: #4056A1;
 }
 
-.fa-solid:hover{
+.tweets .fa-solid:hover{
   color: darkgoldenrod;
   transition: 0.2s;
 }

@@ -11,12 +11,16 @@
   background-color: #4056A1;
 }
 
+.fa-solid {
+  color: red;
+}
+
 .branding {
   font-size: 50px;
   font-family: 'Bungee', cursive;
 }
 
-.newtweet {
+.new-tweet-btn {
   display: flex;
   flex-direction: column;
   text-align: center;
