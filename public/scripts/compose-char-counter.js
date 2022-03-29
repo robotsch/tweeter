@@ -1,4 +1,4 @@
-
+/* eslint-env browser, jquery */
 $(document).ready(function() {
   let counter = 0;
   // Grab and store elements
