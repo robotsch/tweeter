@@ -9,17 +9,25 @@ $(document).ready(function () {
   const $tweetForm = $('#tweet-submit-form')
     .submit(function (e) {
       e.preventDefault()
-      $.ajax({
-        url: '/tweets',
-        method: 'POST',
-        data: $tweetForm.serialize()
-      })
+      const tweetLength = this.text.value.length
+      if(this.text.value && 
+        tweetLength > 0 && 
+        tweetLength <= 140 &&
+        this.text.value.trim() !== ''
+        ) {
+          return $.ajax({
+          url: '/tweets',
+          method: 'POST',
+          data: $(this).serialize()
+        }).then( () => {
+          $.ajax('/tweets', { method: 'GET'})
+            .then(function (results) {
+              renderTweets([results[results.length-1]])
+            })
+        })
+      }
+      alert('Failure')
     })
-
-  const loadTweets = function() {
-    
-  }
-
 
   const createTweetElement = function (data) {
     // Dates handled by timeago jQuery plugin
@@ -37,7 +45,8 @@ $(document).ready(function () {
       </header>
       `)
 
-      .append(`<p>${data.content.text}</p>`).append(`
+      .append(`<p>${data.content.text}</p>`)
+      .append(`
       <footer>
         <time>
           ${jQuery.timeago(datePosted)}
@@ -52,12 +61,19 @@ $(document).ready(function () {
     return $tweet;
   };
 
+  const loadTweets = function() {
+    $.ajax('/tweets', { method: 'GET'})
+      .then(function (results) {
+        renderTweets(results)
+      })
+  }
+
   const renderTweets = function (tweets) {
     const tweetSection = $("#tweets-section");
     for (const tweet of tweets) {
-      tweetSection.append(createTweetElement(tweet));
+      tweetSection.prepend(createTweetElement(tweet));
     }
   };
 
-  renderTweets(data)
+  loadTweets()
 });
