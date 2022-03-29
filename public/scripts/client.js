@@ -6,7 +6,6 @@
 
 $(document).ready(function () {
   const tweetError = $('#tweet-error')
-  tweetError.hide()
 
   const $tweetForm = $('#tweet-submit-form')
     .submit(function (e) {
@@ -25,6 +24,7 @@ $(document).ready(function () {
           data: $(this).serialize()
         }).then( () => {
           // Clear text box, error, show new validated tweet
+          tweetError.html('')
           $('#tweet-text').val('')
           $.ajax('/tweets', { method: 'GET'})
             .then(function (results) {
@@ -32,7 +32,7 @@ $(document).ready(function () {
             })
         })
       }
-      tweetError.show()
+      tweetError.html('Tweets must be between 1 and 140 characters in length.')
     })
 
   const createTweetElement = function (data) {
