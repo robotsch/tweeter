@@ -10,16 +10,20 @@ $(document).ready(function () {
     .submit(function (e) {
       e.preventDefault()
       const tweetLength = this.text.value.length
+      // Validate tweet content
       if(this.text.value && 
         tweetLength > 0 && 
         tweetLength <= 140 &&
         this.text.value.trim() !== ''
         ) {
+          // Tweet is valid, post it to server
           return $.ajax({
           url: '/tweets',
           method: 'POST',
           data: $(this).serialize()
         }).then( () => {
+          // Clear text box, show new validated tweet
+          $('#tweet-text').val('')
           $.ajax('/tweets', { method: 'GET'})
             .then(function (results) {
               renderTweets([results[results.length-1]])
@@ -32,7 +36,9 @@ $(document).ready(function () {
   const createTweetElement = function (data) {
     // Dates handled by timeago jQuery plugin
     // https://timeago.yarp.com/
+    const safeHTML = `<p>${escape(data.content.text)}</p>`;
     const datePosted = new Date(data.created_at);
+    // Construct new tweet, append each section of tweet
     const $tweet = $(`<article>`)
       .append(`
       <header>
@@ -44,8 +50,7 @@ $(document).ready(function () {
         </div>
       </header>
       `)
-
-      .append(`<p>${data.content.text}</p>`)
+      .append(`${safeHTML}`)
       .append(`
       <footer>
         <time>
@@ -62,6 +67,7 @@ $(document).ready(function () {
   };
 
   const loadTweets = function() {
+    // Get all tweets, send to renderTweets
     $.ajax('/tweets', { method: 'GET'})
       .then(function (results) {
         renderTweets(results)
@@ -69,11 +75,20 @@ $(document).ready(function () {
   }
 
   const renderTweets = function (tweets) {
+    // Grab tweet section once to avoid searching dom tree repeatedly
     const tweetSection = $("#tweets-section");
     for (const tweet of tweets) {
       tweetSection.prepend(createTweetElement(tweet));
     }
   };
 
+  // Basic character escaping for the most rudimentary of XSS attempts
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
+  // Load tweets on initial page load
   loadTweets()
 });
