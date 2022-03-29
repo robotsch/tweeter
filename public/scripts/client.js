@@ -5,6 +5,8 @@
  */
 
 $(document).ready(function () {
+  const tweetError = $('#tweet-error')
+  tweetError.hide()
 
   const $tweetForm = $('#tweet-submit-form')
     .submit(function (e) {
@@ -22,7 +24,7 @@ $(document).ready(function () {
           method: 'POST',
           data: $(this).serialize()
         }).then( () => {
-          // Clear text box, show new validated tweet
+          // Clear text box, error, show new validated tweet
           $('#tweet-text').val('')
           $.ajax('/tweets', { method: 'GET'})
             .then(function (results) {
@@ -30,7 +32,7 @@ $(document).ready(function () {
             })
         })
       }
-      alert('Failure')
+      tweetError.show()
     })
 
   const createTweetElement = function (data) {
