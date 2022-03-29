@@ -23,7 +23,7 @@
   font-family: 'Bungee', cursive;
 }
 
-.new-tweet-btn {
+#compose-btn {
   display: flex;
   flex-direction: column;
   text-align: center;
