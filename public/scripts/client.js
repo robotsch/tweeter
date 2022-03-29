@@ -31,7 +31,7 @@ $(document).ready(function () {
 
   // Scroll to top button handler
   $scrollTopBtn.click(function () {
-    $(window).scrollTop(0, 0)
+    $("html, body").animate({ scrollTop: 0})
   })
 
   $tweetForm.submit(function (e) {
