@@ -3,112 +3,120 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
+
+
+@media only screen and (min-width: 320px) {
+  html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  /*
+   * Global layout stuff
+   */
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #545149;
+    background-color: #f4f1ec;
+    font-size: 24px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin-top: 1em;
+    background-color: #f4f1ec;
+  }
+  /*
+   * Additional CSS can be defined below or in other CSS files, as per instructions
+   */
+  
+  .tweets {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 2em;
+  }
+  
+  .tweets article {
+    display: flex;
+    flex-direction: column;
+    border: 5px solid black;
+    padding: 0.5em;
+    margin-bottom: 1em;
+  }
+  
+  .tweets article:hover {
+    box-shadow: 7px 7px 0px rgba(157, 174, 250, 0.589);
+  }
+  
+  .tweets article p {
+    padding: 1em 1em 0.5em 1em
+  }
+  
+  .tweets article header {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .tweeter-name {
+    padding-left: 0.75em;
+  }
+  
+  .tweeter-handle {
+    font-weight: 300;
+    color: grey;
+  }
+  
+  .tweets article footer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 5px solid black;
+    padding: 0.5em 1em 0.5em 1em;
+    font-size: smaller;
+  }
+  
+  .tweets .fa-solid {
+    color: #4056A1;
+  }
+  
+  .tweets .fa-solid:hover{
+    color: darkgoldenrod;
+    transition: 0.2s;
+  }
+  
+  .top-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 2em;  
+    right: 2em;
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    background-color: red;
+  }
+  
+  .top-btn-container:hover {
+    cursor: pointer;
+  }
+  
+  .top-btn-container .top-btn {
+    color: white;
+    padding-bottom: 0.5em;
+  }
 }
 
-/*
- * Global layout stuff
- */
-
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #545149;
-  background-color: #f4f1ec;
-  font-size: 24px;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 600;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 90%;
-  margin-top: 1em;
-  background-color: #f4f1ec;
-}
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
-
-.tweets {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-top: 2em;
-}
-
-.tweets article {
-  display: flex;
-  flex-direction: column;
-  border: 5px solid black;
-  padding: 0.5em;
-  margin-bottom: 1em;
-}
-
-.tweets article:hover {
-  box-shadow: 7px 7px 0px rgba(157, 174, 250, 0.589);
-}
-
-.tweets article p {
-  padding: 1em 1em 0.5em 1em
-}
-
-.tweets article header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.tweeter-name {
-  padding-left: 0.75em;
-}
-
-.tweeter-handle {
-  font-weight: 300;
-  color: grey;
-}
-
-.tweets article footer {
-  display: flex;
-  justify-content: space-between;
-  border-top: 5px solid black;
-  padding: 0.5em 1em 0.5em 1em;
-  font-size: smaller;
-}
-
-.tweets .fa-solid {
-  color: #4056A1;
-}
-
-.tweets .fa-solid:hover{
-  color: darkgoldenrod;
-  transition: 0.2s;
-}
-
-.top-btn-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  bottom: 2em;  
-  right: 2em;
-  border-radius: 50%;
-  width: 2.5em;
-  height: 2.5em;
-  background-color: red;
-}
-
-.top-btn-container:hover {
-  cursor: pointer;
-}
-
-.top-btn-container .top-btn {
-  color: white;
-  padding-bottom: 0.5em;
+@media only screen and (min-width: 768px) {
+  
 }
