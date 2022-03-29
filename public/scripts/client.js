@@ -13,7 +13,7 @@ $(document).ready(function () {
   $tweetForm.hide()
 
   // Tweet form animation
-  const $composeBtn = $("#compose-btn")
+  const $composeBtn = $(".compose-btn")
   $composeBtn.click(function() {
     $($tweetForm).slideToggle()
   })

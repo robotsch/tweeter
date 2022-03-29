@@ -90,3 +90,25 @@ main {
   color: darkgoldenrod;
   transition: 0.2s;
 }
+
+.top-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 2em;  
+  right: 2em;
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  background-color: red;
+}
+
+.top-btn-container:hover {
+  cursor: pointer;
+}
+
+.top-btn-container .top-btn {
+  color: white;
+  padding-bottom: 0.5em;
+}

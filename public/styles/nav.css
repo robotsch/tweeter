@@ -23,8 +23,9 @@
   font-family: 'Bungee', cursive;
 }
 
-#compose-btn {
+.compose-btn {
   display: flex;
   flex-direction: column;
   text-align: center;
+  cursor: pointer;
 }
