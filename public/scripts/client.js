@@ -5,19 +5,30 @@
  */
 
 $(document).ready(function () {
-  
-  // Hide 'optional' elements on pageload
+  // Set up elements that may be shown/hidden
   const tweetError = $("#tweet-error");
   tweetError.hide();
   const $tweetForm = $("#tweet-submit-form");
-  $tweetForm.hide()
+  $tweetForm.hide();
+  const $composeBtn = $(".compose-btn");
+  $composeBtn.hide()
+  const $scrollTopBtn = $(".top-btn-container");
+  
+  // Observer API is pretty neat
+  // https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+  // Not jQuery, but more modern and still used on most browsers
+  // New observer object, executes callback when scrolling past the header
+  const observer = new IntersectionObserver(() => {
+    $scrollTopBtn.toggle()
+    $composeBtn.toggle()
+  }, {threshold: [0.3]})
+  observer.observe(document.querySelector('.header'))
 
   // Tweet form animation
-  const $composeBtn = $(".compose-btn")
-  $composeBtn.click(function() {
-    $($tweetForm).slideToggle()
-  })
-  
+  $composeBtn.click(function () {
+    $($tweetForm).slideToggle();
+  });
+
   $tweetForm.submit(function (e) {
     e.preventDefault();
     const tweetLength = this.text.value.length;
@@ -42,6 +53,7 @@ $(document).ready(function () {
         });
       });
     }
+    console.log($(window).scrollTop());
     tweetError.slideDown();
   });
 
@@ -61,8 +73,7 @@ $(document).ready(function () {
         ${data.user.handle}
         </div>
       </header>
-      `
-      )
+      `)
       .append(`${safeHTML}`).append(`
       <footer>
         <time>
