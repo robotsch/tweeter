@@ -19,8 +19,8 @@ $(document).ready(function () {
   // Not jQuery, but more modern and still used on most browsers
   // New observer object, executes callback when scrolling past the header
   const observer = new IntersectionObserver(() => {
-    $scrollTopBtn.toggle()
-    $composeBtn.toggle()
+    $scrollTopBtn.fadeToggle()
+    $composeBtn.fadeToggle()
   }, {threshold: [0.3]})
   observer.observe(document.querySelector('.header'))
 
@@ -28,6 +28,11 @@ $(document).ready(function () {
   $composeBtn.click(function () {
     $($tweetForm).slideToggle();
   });
+
+  // Scroll to top button handler
+  $scrollTopBtn.click(function () {
+    $(window).scrollTop(0, 0)
+  })
 
   $tweetForm.submit(function (e) {
     e.preventDefault();
