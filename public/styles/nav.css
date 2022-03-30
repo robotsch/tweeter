@@ -1,31 +1,41 @@
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: 'Source Sans Pro', sans-serif;
-  position: sticky;
-  top: 0;
-  width: 100%;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-  height: 120px;
-  color: #FFFFFF;
-  background-color: #4056A1;
+@media only screen and (min-width: 320px) {
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    height: 120px;
+    color: #FFFFFF;
+    background-color: orange;
+    background-image: url('../images/45-degree-fabric-light.png');
+  }
+
+  .fa-solid {
+    color: red;
+    margin-top: 0.5em;
+  }
+
+  .branding {
+    font-size: 50px;
+    font-family: 'Bungee', cursive;
+  }
+
+  .compose-btn {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    cursor: pointer;
+  }
 }
 
-.fa-solid {
-  color: red;
-  margin-top: 0.5em;
-}
-
-.branding {
-  font-size: 50px;
-  font-family: 'Bungee', cursive;
-}
-
-.compose-btn {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  cursor: pointer;
+@media only screen and (min-width: 1024px) {
+  .nav {
+    background-color: #4056A1;
+    background-image: none;
+  }
 }

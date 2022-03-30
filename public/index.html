@@ -38,32 +38,33 @@
         <i class="fa-solid fa-angles-down fa-bounce"></i>
       </div>
     </nav>
-    <header class="header">
-      <div>
-          <img src="/images/profile-hex.png"> 
-      </div>
-      <div>
-          <h2>Christian</h2>
-      </div>
-    </header>
-
     <!-- Page-specific (main) content here -->
     <main>
-      <section class="new-tweet">
-        <div id="tweet-error">
-          Tweets must be between 1 and 140 characters in length.
+      <header class="header">
+        <div>
+            <img src="/images/profile-hex.png"> 
         </div>
-        <form method="POST" action="/tweets" class="new-tweet" id="tweet-submit-form">
-          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
-          <div class="under-text">
-            <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
+        <div>
+            <h2>Christian</h2>
+        </div>
+      </header>
+      <div class="tweet-column">
+        <section class="new-tweet">
+          <div id="tweet-error">
+            Tweets must be between 1 and 140 characters in length.
           </div>
-        </form>
-      </section>
-      <section class="tweets" id="tweets-section"></section>
-      <div class="top-btn-container">
-        <i class="top-btn fa-solid fa-angles-up"></i>
+          <form method="POST" action="/tweets" id="tweet-submit-form">
+            <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+            <div class="under-text">
+              <button type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+        </section>
+        <section class="tweets" id="tweets-section"></section>
+        <div class="top-btn-container">
+          <i class="top-btn fa-solid fa-angles-up"></i>
+        </div>
       </div>
     </main>
   </body>

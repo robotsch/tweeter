@@ -1,44 +1,63 @@
-.new-tweet {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+@media only screen and (min-width: 320px) {
+  .new-tweet {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1em;
+  }
+
+  #tweet-error {
+    display: flex;
+    justify-content: center;
+    color: red;
+    margin-bottom: 1em;
+  }
+
+  .new-tweet button {
+    font-family: 'Bungee', cursive;
+    color: white;
+    background-color: #4056A1;
+  }
+
+  #tweet-submit-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .new-tweet output {
+    font-family: 'Bungee', cursive;
+    color: black;
+  }
+
+  .new-tweet label {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+  }
+
+  .under-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5em
+  }
+
+  textarea {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    resize: none;
+    background: none;
+    border: none;
+    border-bottom: 5px solid black;
+  }
 }
 
-#tweet-error {
-  display: flex;
-  justify-content: center;
-  color: red;
-  margin-bottom: 1em;
-}
+@media only screen and (min-width: 1024px) {
+  .new-tweet {
+    margin-top: 0em;
+  }
 
-.new-tweet button {
-  font-family: 'Bungee', cursive;
-  color: white;
-  background-color: #4056A1;
-}
-
-.new-tweet output {
-  font-family: 'Bungee', cursive;
-  color: black;
-}
-
-.new-tweet label {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: bold;
-}
-
-.under-text {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 0.5em
-}
-
-textarea {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: bold;
-  resize: none;
-  background: none;
-  border: none;
-  border-bottom: 5px solid black;
+  #tweet-submit-form {
+    margin-bottom: 2em;
+  }
 }
