@@ -28,7 +28,7 @@ $(document).ready(function() {
   // Tweet form animation
   $composeBtn.click(function() {
     $($tweetForm).slideToggle();
-    $("#tweet-text").focus()
+    $("#tweet-text").focus();
   });
 
   // Scroll to top button handler
@@ -55,7 +55,7 @@ $(document).ready(function() {
         // Clear text box, error, counter, show new validated tweet
         tweetError.slideUp();
         $("#tweet-text").val("");
-        $(".counter").val("140")
+        $(".counter").val("140");
         $.ajax("/tweets", { method: "GET" }).then(function(results) {
           renderTweets([results[results.length - 1]]);
         });
