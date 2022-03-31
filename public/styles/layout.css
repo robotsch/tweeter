@@ -53,6 +53,7 @@
   .tweets article {
     display: flex;
     flex-direction: column;
+    word-wrap: break-word;
     border: 5px solid black;
     padding: 0.5em;
     margin-bottom: 1em;
