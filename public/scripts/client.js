@@ -28,6 +28,7 @@ $(document).ready(function() {
   // Tweet form animation
   $composeBtn.click(function() {
     $($tweetForm).slideToggle();
+    $("#tweet-text").focus()
   });
 
   // Scroll to top button handler
