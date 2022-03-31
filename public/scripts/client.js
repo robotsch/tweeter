@@ -61,7 +61,6 @@ $(document).ready(function() {
         });
       });
     }
-    console.log($(window).scrollTop());
     tweetError.slideDown();
   });
 
@@ -78,7 +77,7 @@ $(document).ready(function() {
           <img src="${data.user.avatars}" title="user avatar"></img>${data.user.name}
         </div>
         <div class="tweeter-handle">
-        ${data.user.handle}
+          ${data.user.handle}
         </div>
       </header>
       `)

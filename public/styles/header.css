@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: white;
     background-color: orange;
     background-image: url('../images/45-degree-fabric-light.png');
     height: 400px;
@@ -15,5 +16,6 @@
   .header {
     justify-content: flex-start;
     width: 30%;
+    padding-top: 1em;
   }
 }
