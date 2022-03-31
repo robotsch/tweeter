@@ -73,7 +73,7 @@ $(document).ready(function() {
       .append(`
       <header>
         <div class="tweeter-name">
-          <span>ඞ</span>${data.user.name}
+          <img src="${data.user.avatars}" title="user avatar"></img>${data.user.name}
         </div>
         <div class="tweeter-handle">
         ${data.user.handle}

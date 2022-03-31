@@ -72,7 +72,14 @@
   }
   
   .tweeter-name {
+    display: flex;
+    flex-direction: row;
     padding-left: 0.75em;
+    align-items: center;
+  }
+
+  .tweeter-name img {
+    padding-right: 0.25em;
   }
   
   .tweeter-handle {
