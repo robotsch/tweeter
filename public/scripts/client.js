@@ -52,9 +52,10 @@ $(document).ready(function() {
         method: "POST",
         data: $(this).serialize(),
       }).then(() => {
-        // Clear text box, error, show new validated tweet
+        // Clear text box, error, counter, show new validated tweet
         tweetError.slideUp();
         $("#tweet-text").val("");
+        $(".counter").val("140")
         $.ajax("/tweets", { method: "GET" }).then(function(results) {
           renderTweets([results[results.length - 1]]);
         });
